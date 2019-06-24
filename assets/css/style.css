@@ -1,0 +1,13 @@
+.sm-character {
+    display: inline-block;
+    
+    border-style: solid;    
+    border-color: black;
+    border-width: 5px;
+}
+
+.sm-character img {
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
