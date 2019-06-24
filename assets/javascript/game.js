@@ -18,7 +18,7 @@ characterData = [
         image: "kylo-ren.png",
         healthPoints: 100,
         attackPower: 15,
-        counterattackPower: 5
+        counterattackPower: 25
     },
     {
         name: "Rey",
@@ -32,7 +32,7 @@ characterData = [
         image: "han-solo.png",
         healthPoints: 180,
         attackPower: 5,
-        counterattackPower: 11
+        counterattackPower: 18
     }
 ]
 
@@ -110,12 +110,12 @@ $("#attack").on("click", function () {
         $("#defender").hide();
         $("#defender").removeAttr("id");
         defender = null;
+        $("#attack").hide();
 
         // check for any enemies remaining
         if ($("#enemies").children("div").length === 0) {
             $("#instructions").text("You win! Click the Restart button to play again.");
             $("#restart").show();
-            $("#attack").hide();
         }
 
         return;
@@ -127,8 +127,9 @@ $("#attack").on("click", function () {
 
     if (player.healthPoints <= 0) {
         // player loses
-        $("#instructions").text("You have been defeated &mdash; GAME OVER!");
+        $("#instructions").text("You have been defeated \u2014 GAME OVER!");
         $("#restart").show();
+        $("#attack").hide();
     } 
     else {
         $("#instructions").text("You attacked " + defender.name + " for " + player.attackPower + " damage./n " + defender.name + " counter-attacked for " + defender.counterattackPower + " damage.");
@@ -140,6 +141,12 @@ $("#attack").on("click", function () {
 });
 
 $("#restart").on("click", function () {
+    var characters = $(".sm-character").detach();
+    $("#all-characters").append(characters);
+    $(".sm-character").show();
+    $("#player").removeAttr("id");
     
+    player = null;
+    defender = null;
     $("#restart").hide();
 });
