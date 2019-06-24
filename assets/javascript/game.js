@@ -37,7 +37,8 @@ characterData = [
 ]
 
 if ($(document).ready()) {
-    console.log("ready");
+
+    $("#instructions").text("Click a character to begin.");
 
     // hide controls
     $("#attack").hide();
@@ -58,6 +59,7 @@ if ($(document).ready()) {
 
         let $healthPoints = $("<div>");
         $healthPoints.attr("class", "health-points");
+        $healthPoints.attr("data-starting-hp", element.healthPoints); // to use when restarting
         $healthPoints.text(element.healthPoints);
         $newCharacter.append($healthPoints);
 
@@ -132,7 +134,7 @@ $("#attack").on("click", function () {
         $("#attack").hide();
     } 
     else {
-        $("#instructions").text("You attacked " + defender.name + " for " + player.attackPower + " damage./n " + defender.name + " counter-attacked for " + defender.counterattackPower + " damage.");
+        $("#instructions").text("You attacked " + defender.name + " for " + player.attackPower + " damage.\n " + defender.name + " counter-attacked for " + defender.counterattackPower + " damage.");
 
         // increase player's attack power
         player.attackPower += player.baseAttackPower;
@@ -145,7 +147,14 @@ $("#restart").on("click", function () {
     $("#all-characters").append(characters);
     $(".sm-character").show();
     $("#player").removeAttr("id");
+
+    // reset displayed health points
+    $(".health-points").each( function() {
+         $(this).text( $(this).attr("data-starting-hp") );
+    });    
     
+    $("#instructions").text("Click a character to begin.");
+
     player = null;
     defender = null;
     $("#restart").hide();

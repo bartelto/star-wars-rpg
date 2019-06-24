@@ -1,17 +1,65 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 .sm-character {
     display: inline-block;
     min-width: 150px;
     border-style: solid;    
     border-color: black;
     border-width: 5px;
+    text-align: center;
+    
 }
 
 .sm-character img {
     height: 150px;
     display: block;
     margin: 0 auto;
+    background-image: linear-gradient(to right, black, white , black);
+}
+
+#player-area, #defender-area {
+    text-align: center;
+    
+}
+
+
+
+#player {
+    z-index: auto;
+    border: solid 0;
+    position: relative;
+    width: 300px;
 }
 
 #player img {
-    height: 200px;
+    height: 300px;
+    
+    background-image: none;
+}
+
+
+#player::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -100px;
+    height: 50px;
+    width: 200px;
+    border-radius: 50%;
+    background: none;
+    box-shadow: 0 100px 10px 10px blue;
+    z-index: -1;
 }
