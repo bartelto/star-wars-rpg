@@ -23,14 +23,14 @@ characterData = [
     {
         name: "Rey",
         image: "rey.png",
-        healthPoints: 140,
+        healthPoints: 125,
         attackPower: 10,
         counterattackPower: 19
     },
     {
         name: "Han Solo",
         image: "han-solo.png",
-        healthPoints: 125,
+        healthPoints: 135,
         attackPower: 8,
         counterattackPower: 17
     }
@@ -58,6 +58,7 @@ if ($(document).ready()) {
         
         let $characterImage = $("<img>");
         $characterImage.attr("src", "assets/images/" + element.image);
+        $characterImage.attr("alt", element.name);
         $newCharacter.append($characterImage);
 
         let $healthPoints = $("<div>");
