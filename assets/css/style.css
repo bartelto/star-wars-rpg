@@ -2,17 +2,30 @@ body {
     background-color: black;
     color: white;
     font-family: 'Libre Franklin', sans-serif;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 h2 {
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 10px;    
 }
+
+#instructions {
+    margin-bottom: 10px;
+    font-size: 24px;
+    min-height: 50px;
+}
+
 .sm-character {
     display: inline-block;
     min-width: 150px;
@@ -20,37 +33,49 @@ h2 {
     border-color: black;
     border-width: 5px;
     text-align: center;
+    background-image: radial-gradient( white , black 60%);
     
 }
 
 .sm-character img {
     height: 150px;
     display: block;
-    margin: 0 auto;
-    background-image: linear-gradient(to right, black, white , black);
+    margin: 5px auto;
+    
+
 }
 
 #player-area, #defender-area {
     text-align: center;
-    
+    display: inline-block;
+    width: 43%;
 }
 
-
-
-#player {
+#player, #defender {
     z-index: auto;
     border: solid 0;
     position: relative;
     width: 300px;
 }
 
-#player img {
-    height: 300px;
-    
+#player img,
+#defender img {
+    height: 250px;
     background-image: none;
 }
 
+#instructions,
+#all-characters,
+#enemies {
+    width: 100%;
+    text-align: center;
+}
 
+#controls {
+    display: inline-block;
+}
+
+/*
 #player::after {
     content: "";
     position: absolute;
@@ -62,4 +87,19 @@ h2 {
     background: none;
     box-shadow: 0 100px 10px 10px blue;
     z-index: -1;
+}
+*/
+#enemies {
+    border-width: 3px;
+    border-color: white;
+    border-radius: 20px;
+    border-style: solid;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+button {
+    font-size: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
 }

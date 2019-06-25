@@ -38,7 +38,7 @@ characterData = [
 
 if ($(document).ready()) {
 
-    $("#instructions").text("Click a character to begin.");
+    $("#instructions").text("Select a character to begin.");
 
     // hide controls
     $("#attack").hide();
@@ -86,6 +86,8 @@ $(".sm-character").on("click", function () {
                 $("#enemies").append(element);
             }
         });
+
+        $("#instructions").text("Select an enemy to attack.");
     }
     else if (defender === null) { // defender has not been chosen yet
         var element = $(this).detach();
@@ -147,6 +149,7 @@ $("#restart").on("click", function () {
     $("#all-characters").append(characters);
     $(".sm-character").show();
     $("#player").removeAttr("id");
+    $("#defender").removeAttr("id");
 
     // reset displayed health points
     $(".health-points").each( function() {
