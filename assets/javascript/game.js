@@ -171,4 +171,6 @@ $("#restart").on("click", function () {
     defender = null;
     $("#restart").hide();
     $("#enemies").hide();
+    $("#player-area").hide();
+    $("#defender-area").hide();
 });
