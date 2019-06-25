@@ -9,30 +9,30 @@ characterData = [
     {
         name: "Darth Vader",
         image: "darth-vader.png",
-        healthPoints: 120,
-        attackPower: 10,
+        healthPoints: 100,
+        attackPower: 13,
         counterattackPower: 16
     },
     {
         name: "Kylo Ren",
         image: "kylo-ren.png",
-        healthPoints: 100,
-        attackPower: 15,
-        counterattackPower: 25
+        healthPoints: 90,
+        attackPower: 16,
+        counterattackPower: 21
     },
     {
         name: "Rey",
         image: "rey.png",
-        healthPoints: 150,
-        attackPower: 8,
-        counterattackPower: 20
+        healthPoints: 140,
+        attackPower: 10,
+        counterattackPower: 19
     },
     {
         name: "Han Solo",
         image: "han-solo.png",
-        healthPoints: 180,
-        attackPower: 5,
-        counterattackPower: 18
+        healthPoints: 125,
+        attackPower: 8,
+        counterattackPower: 17
     }
 ]
 
@@ -43,6 +43,9 @@ if ($(document).ready()) {
     // hide controls
     $("#attack").hide();
     $("#restart").hide();
+    $("#enemies").hide();
+    $("#player-area").hide();
+    $("#defender-area").hide();
 
     // load characters
     characterData.forEach(element => {
@@ -88,8 +91,11 @@ $(".sm-character").on("click", function () {
         });
 
         $("#instructions").text("Select an enemy to attack.");
+        $("#player-area").show();
+        $("#enemies").show();
     }
-    else if (defender === null) { // defender has not been chosen yet
+    else if ((defender === null) && ($(this).attr("id") === undefined)) { 
+        // defender has not been chosen yet AND character isn't the player's character
         var element = $(this).detach();
         $("#defender-area").append(element);
         defenderCharDiv = this;
@@ -99,6 +105,7 @@ $(".sm-character").on("click", function () {
         defender = Object.assign({}, characterData[$(defenderCharDiv).attr("data-index")]);
     
         $("#attack").show();
+        $("#defender-area").show();
     }
 
 });
@@ -115,6 +122,7 @@ $("#attack").on("click", function () {
         $("#defender").removeAttr("id");
         defender = null;
         $("#attack").hide();
+        $("#defender-area").hide();
 
         // check for any enemies remaining
         if ($("#enemies").children("div").length === 0) {
@@ -136,7 +144,7 @@ $("#attack").on("click", function () {
         $("#attack").hide();
     } 
     else {
-        $("#instructions").text("You attacked " + defender.name + " for " + player.attackPower + " damage.\n " + defender.name + " counter-attacked for " + defender.counterattackPower + " damage.");
+        $("#instructions").html("You attacked " + defender.name + " for " + player.attackPower + " damage.<br>" + defender.name + " counter-attacked for " + defender.counterattackPower + " damage.");
 
         // increase player's attack power
         player.attackPower += player.baseAttackPower;
@@ -161,4 +169,5 @@ $("#restart").on("click", function () {
     player = null;
     defender = null;
     $("#restart").hide();
+    $("#enemies").hide();
 });

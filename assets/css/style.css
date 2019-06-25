@@ -1,10 +1,16 @@
 body {
-    background-color: black;
     color: white;
     font-family: 'Libre Franklin', sans-serif;
     max-width: 720px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
+    background-image: url("../images/death-star-floor.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 800px auto;
+    background-position: top center;
+    background-color: black;
 }
 
 h1 {
@@ -28,13 +34,26 @@ h2 {
 
 .sm-character {
     display: inline-block;
-    min-width: 150px;
-    border-style: solid;    
-    border-color: black;
-    border-width: 5px;
     text-align: center;
-    background-image: radial-gradient( white , black 60%);
-    
+    background-image: radial-gradient( white , transparent 60%);
+}
+
+#all-characters .sm-character,
+#enemies .sm-character {
+    background-image: radial-gradient( white , rgba(0,0,0,0.7) 60%);
+    border-style: none;    
+    border-color: black;
+    border-radius: 20px;
+    min-width: 150px;
+    margin-right: 10px;
+    padding: 8px 0;
+}
+
+
+
+#all-characters .sm-character::last-child,
+#enemies .sm-character::last-child, {
+    margin-right: 0;
 }
 
 .sm-character img {
@@ -48,7 +67,8 @@ h2 {
 #player-area, #defender-area {
     text-align: center;
     display: inline-block;
-    width: 43%;
+    width: 42%;
+    
 }
 
 #player, #defender {
@@ -58,16 +78,24 @@ h2 {
     width: 300px;
 }
 
+#player-area .sm-character {
+    background-image: radial-gradient(green , transparent 60%);
+}
+
+#defender-area .sm-character {
+    background-image: radial-gradient(red , transparent 60%);
+}
+
 #player img,
 #defender img {
     height: 250px;
     background-image: none;
+    background-color: transparent;
 }
 
 #instructions,
 #all-characters,
 #enemies {
-    width: 100%;
     text-align: center;
 }
 
@@ -102,4 +130,6 @@ button {
     font-size: 24px;
     margin-top: auto;
     margin-bottom: auto;
+    padding: 10px;
+    border-radius: 10px;
 }
