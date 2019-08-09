@@ -4,4 +4,4 @@ Cracks in the multi-verse have opened up, allowing characters from the original 
 
 Choose from four characters and then see if you can defeat the other three. With every attack, you will grow stronger! But will it be enough to keep you alive?
 
-https://bartelto.github.io/unit-4-game/
+https://bartelto.github.io/star-wars-rpg/
