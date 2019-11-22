@@ -4,4 +4,8 @@ Cracks in the multi-verse have opened up, allowing characters from the original 
 
 Choose from four characters and then see if you can defeat the other three. With every attack, you will grow stronger! But will it be enough to keep you alive?
 
-https://bartelto.github.io/star-wars-rpg/
+Try it! https://bartelto.github.io/star-wars-rpg/
+
+## The author
+
+This app was developed by **Todd F. Bartelt** as part of the Full-Stack Web Development program at University of Kansas Professional and Continuing Education. Learn more about Todd at [toddbartelt.com](http://toddbartelt.com).
